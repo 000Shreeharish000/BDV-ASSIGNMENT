@@ -8,6 +8,8 @@
 > **Target Outcomes:** CO2 (Interactive Visualization Pipelines) & CO4 (High-Dimensional Visual Analytics)  
 > **Evaluation Framework:** Bloom's Revised Taxonomy Level K5 / K6 (Evaluating & Synthesizing)  
 > **UN SDG Alignment:** SDG 3: Good Health and Well-being (Target 3.4 & 3.d)  
+> **Live Production Dashboard:** [https://hospitalanalytics.vercel.app/](https://hospitalanalytics.vercel.app/)  
+> **GitHub Repository:** [https://github.com/000Shreeharish000/BDV-ASSIGNMENT](https://github.com/000Shreeharish000/BDV-ASSIGNMENT)  
 
 ---
 
@@ -185,8 +187,8 @@ python scripts/generate_powerpoint.py
 3. Click **Add New Project** and select `000Shreeharish000/BDV-ASSIGNMENT`.
 4. Framework Preset will automatically detect **Next.js**.
 5. Keep default settings and click **Deploy**.
-6. Once deployed, copy your live production URL (e.g., `https://bdv-assignment.vercel.app`).
-7. Open the deployed application, navigate to the **Submission Hub & QR** view, paste your live URL into the QR generator, and download the high-resolution submission QR code.
+6. Live Production Portal: **https://hospitalanalytics.vercel.app/**
+7. Open the deployed application, navigate to the **Submission Hub & QR** view to view or download the high-resolution submission QR code.
 
 ---
 
@@ -204,3 +206,4 @@ python scripts/generate_powerpoint.py
 ## 9. Academic Integrity & Ethics
 
 In strict compliance with healthcare privacy regulations (HIPAA / GDPR), all patient identifiers in this research are synthetic tokens (`PAT-00001` through `PAT-04000`). Clinical distributions, seasonal frequencies, and length of stay patterns are mathematically parameterized from public healthcare benchmarks (CDC National Hospital Discharge Survey and MIMIC-IV).
+

@@ -237,3 +237,4 @@ export const D3LosHistogram: React.FC<D3LosHistogramProps> = ({
     </div>
   );
 };
+

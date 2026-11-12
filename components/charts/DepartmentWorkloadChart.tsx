@@ -147,3 +147,4 @@ export const DepartmentWorkloadChart: React.FC<DepartmentWorkloadChartProps> = (
     </div>
   );
 };
+

@@ -8,6 +8,7 @@ Faculty Handling: Dr. Ganagavalli K
 
 import os
 import json
+import shutil
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -59,6 +60,7 @@ class NumberedCanvas(canvas.Canvas):
 def build_pdf():
     os.makedirs("public/documents", exist_ok=True)
     os.makedirs("reports", exist_ok=True)
+    os.makedirs("reports/figures", exist_ok=True)
     pdf_path = "reports/Hospital_Patient_Admission_Analysis_Report.pdf"
     public_pdf_path = "public/documents/Hospital_Patient_Admission_Analysis_Report.pdf"
 
@@ -66,7 +68,7 @@ def build_pdf():
         summary = json.load(f)
     kpis = summary["kpis"]
 
-    # 54pt (0.75 in) margins
+    # 50pt margins
     doc = SimpleDocTemplate(
         pdf_path,
         pagesize=letter,
@@ -83,57 +85,52 @@ def build_pdf():
         'DocTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=20,
-        leading=24,
+        fontSize=19,
+        leading=23,
         textColor=colors.HexColor("#0f172a"),
         alignment=1,
-        spaceAfter=10
+        spaceAfter=8
     )
     subtitle_style = ParagraphStyle(
         'DocSubtitle',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=11,
-        leading=15,
+        fontSize=10.5,
+        leading=14,
         textColor=colors.HexColor("#334155"),
         alignment=1,
-        spaceAfter=20
+        spaceAfter=16
     )
     h1_style = ParagraphStyle(
         'Heading1_Custom',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=12.5,
-        leading=16,
+        fontSize=12,
+        leading=15,
         textColor=colors.HexColor("#1e293b"),
-        spaceBefore=10,
-        spaceAfter=6,
+        spaceBefore=8,
+        spaceAfter=5,
         keepWithNext=True
     )
     h2_style = ParagraphStyle(
         'Heading2_Custom',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=10,
-        leading=13,
+        fontSize=9.5,
+        leading=12.5,
         textColor=colors.HexColor("#2563eb"),
-        spaceBefore=7,
-        spaceAfter=4,
+        spaceBefore=6,
+        spaceAfter=3,
         keepWithNext=True
     )
     body_style = ParagraphStyle(
         'Body_Custom',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.5,
-        leading=11.8,
+        fontSize=8.3,
+        leading=11.4,
         textColor=colors.HexColor("#1e293b"),
-        spaceAfter=5
-    )
-    body_bold = ParagraphStyle(
-        'Body_Bold',
-        parent=body_style,
-        fontName='Helvetica-Bold'
+        spaceAfter=4.5
     )
     caption_style = ParagraphStyle(
         'Caption_Custom',
@@ -144,22 +141,22 @@ def build_pdf():
         textColor=colors.HexColor("#475569"),
         alignment=1,
         spaceBefore=3,
-        spaceAfter=6
+        spaceAfter=5
     )
     callout_style = ParagraphStyle(
         'Callout_Custom',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.2,
-        leading=11.5,
+        fontSize=8.0,
+        leading=11.2,
         textColor=colors.HexColor("#0f172a")
     )
     table_cell = ParagraphStyle(
         'TableCell',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=7.5,
-        leading=9.5,
+        fontSize=7.4,
+        leading=9.3,
         textColor=colors.HexColor("#0f172a")
     )
     table_cell_bold = ParagraphStyle(
@@ -180,42 +177,42 @@ def build_pdf():
     # =========================================================================
     # PAGE 1: COVER PAGE
     # =========================================================================
-    story.append(Spacer(1, 15))
+    story.append(Spacer(1, 10))
     
     # Institution Badge Table
     inst_header = [
-        [Paragraph("<font size=11><b>SRM INSTITUTE OF SCIENCE AND TECHNOLOGY</b></font><br/>"
-                   "<font size=8.5 color='#475569'>Faculty of Engineering and Technology | Department of Big Data Analytics<br/>"
-                   "Tiruchirappalli Campus, Tamil Nadu – 621105</font>", ParagraphStyle('H', alignment=1, leading=14))]
+        [Paragraph("<font size=10.5><b>SRM INSTITUTE OF SCIENCE AND TECHNOLOGY</b></font><br/>"
+                   "<font size=8.0 color='#475569'>Faculty of Engineering and Technology | Department of Big Data Analytics<br/>"
+                   "Tiruchirappalli Campus, Tamil Nadu – 621105</font>", ParagraphStyle('H', alignment=1, leading=13))]
     ]
     t_inst = Table(inst_header, colWidths=[512])
     t_inst.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
         ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#cbd5e1")),
-        ('TOPPADDING', (0, 0), (-1, -1), 10),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+        ('TOPPADDING', (0, 0), (-1, -1), 8),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
     ]))
     story.append(t_inst)
-    story.append(Spacer(1, 35))
+    story.append(Spacer(1, 24))
 
     # Assessment Meta Box
     meta_box = [
-        [Paragraph("<b>ACADEMIC COURSEWORK CONTINUOUS LEARNING ASSESSMENT (CLA – 2)</b>", ParagraphStyle('MB', fontName='Helvetica-Bold', fontSize=9, alignment=1, textColor=colors.HexColor("#1e40af")))],
-        [Paragraph("Regulations 2021 | B.Tech. Computer Science and Engineering | Academic Year 2026–2027 | Semester VII", ParagraphStyle('MS', fontName='Helvetica', fontSize=8, alignment=1, textColor=colors.HexColor("#475569")))]
+        [Paragraph("<b>ACADEMIC COURSEWORK CONTINUOUS LEARNING ASSESSMENT (CLA – 2)</b>", ParagraphStyle('MB', fontName='Helvetica-Bold', fontSize=8.5, alignment=1, textColor=colors.HexColor("#1e40af")))],
+        [Paragraph("Regulations 2021 | B.Tech. Computer Science and Engineering | Academic Year 2026–2027 | Semester VII", ParagraphStyle('MS', fontName='Helvetica', fontSize=7.5, alignment=1, textColor=colors.HexColor("#475569")))]
     ]
     t_meta = Table(meta_box, colWidths=[512])
     t_meta.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#eff6ff")),
         ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#bfdbfe")),
-        ('TOPPADDING', (0, 0), (-1, -1), 6),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ('TOPPADDING', (0, 0), (-1, -1), 5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
     ]))
     story.append(t_meta)
-    story.append(Spacer(1, 30))
+    story.append(Spacer(1, 22))
 
     story.append(Paragraph("HOSPITAL PATIENT ADMISSION AND DISEASE DISTRIBUTION ANALYSIS", title_style))
     story.append(Paragraph("A Multi-Dimensional Exploratory Big Data Visualization and Healthcare Analytics Study", subtitle_style))
-    story.append(Spacer(1, 20))
+    story.append(Spacer(1, 14))
 
     # Project Details Grid Table
     details_data = [
@@ -226,42 +223,43 @@ def build_pdf():
         [Paragraph("<b>RIASEC Context:</b>", table_cell_bold), Paragraph("Realistic (R) & Investigative (I) Healthcare Analytics", table_cell)],
         [Paragraph("<b>SDG Integration:</b>", table_cell_bold), Paragraph("UN Sustainable Development Goal 3: Good Health and Well-being (Level 2: Design Alignment)", table_cell)],
         [Paragraph("<b>Faculty In-Charge:</b>", table_cell_bold), Paragraph("Dr. Ganagavalli K, Department of Big Data Analytics", table_cell)],
-        [Paragraph("<b>Submission Format:</b>", table_cell_bold), Paragraph("Comprehensive Academic Report (PDF), Interactive Web Dashboard, and Slide Deck", table_cell)],
-        [Paragraph("<b>Dataset Scale:</b>", table_cell_bold), Paragraph(f"4,000 Validated Clinical Episodes | 10 Clinical & Operational Dimensions | FY2024", table_cell)],
-        [Paragraph("<b>Production Status:</b>", table_cell_bold), Paragraph("Production-Ready Full-Stack Artifact | Vercel Deployment & Interactive D3 Suite", table_cell)]
+        [Paragraph("<b>Dataset Scale:</b>", table_cell_bold), Paragraph(f"4,000 Validated Clinical Episodes | 10 Dimensions | FY2024", table_cell)],
+        [Paragraph("<b>Production Status:</b>", table_cell_bold), Paragraph("Production-Ready Full-Stack Artifact | Vercel Deployment & Interactive D3 Suite", table_cell)],
+        [Paragraph("<b>Live Vercel Portal:</b>", table_cell_bold), Paragraph("<font color='#2563eb'><b>https://hospitalanalytics.vercel.app/</b></font>", table_cell)],
+        [Paragraph("<b>GitHub Repository:</b>", table_cell_bold), Paragraph("https://github.com/000Shreeharish000/BDV-ASSIGNMENT.git", table_cell)]
     ]
     t_details = Table(details_data, colWidths=[150, 362])
     t_details.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#ffffff")),
         ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
         ('BACKGROUND', (0, 0), (0, -1), colors.HexColor("#f8fafc")),
-        ('TOPPADDING', (0, 0), (-1, -1), 5),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
-        ('LEFTPADDING', (0, 0), (-1, -1), 10),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 10),
+        ('TOPPADDING', (0, 0), (-1, -1), 4.2),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 4.2),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 8),
     ]))
     story.append(t_details)
-    story.append(Spacer(1, 35))
+    story.append(Spacer(1, 24))
 
     # Executive Abstract Callout on Cover
     abs_text = (
         "<b>Executive Abstract:</b> This academic research project delivers a comprehensive big data visualization architecture "
         "investigating 4,000 clinical admission records across acute care hospital operations. Leveraging modern reactive visualization paradigms "
-        "(D3.js, React 19, TypeScript, and Next.js 15), the system models multi-variate dependencies across temporal patient influx, epidemiological "
+        "(D3.js, React 19, TypeScript, and Next.js 14), the system models multi-variate dependencies across temporal patient influx, epidemiological "
         "disease distributions, demographic vulnerabilities, departmental workload dynamics, and Length of Stay (LOS) distributions. "
         "Empirical analysis reveals acute emergency admissions comprising 53.8% of hospital intake, with Cardiovascular Diseases constituting "
         "the predominant diagnostic burden (21.6%). The Intensive Care Unit (ICU) exhibits the highest stay duration (mean: 13.86 days), while "
         "geriatric cohorts (56+ years) dominate bed occupancy (49.0%). All findings are verified programmatically and delivered across "
-        "an interactive web portal, this 10-page formal publication report, and an executive presentation slide deck."
+        "an interactive web portal (<b>https://hospitalanalytics.vercel.app/</b>), this 10-page formal publication report, and an executive presentation slide deck."
     )
     t_abs = Table([[Paragraph(abs_text, callout_style)]], colWidths=[512])
     t_abs.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f1f5f9")),
         ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#94a3b8")),
-        ('TOPPADDING', (0, 0), (-1, -1), 9),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 9),
-        ('LEFTPADDING', (0, 0), (-1, -1), 12),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 12),
+        ('TOPPADDING', (0, 0), (-1, -1), 8),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+        ('LEFTPADDING', (0, 0), (-1, -1), 10),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 10),
     ]))
     story.append(t_abs)
     story.append(PageBreak())
@@ -398,7 +396,7 @@ def build_pdf():
     story.append(Paragraph(
         "To achieve enterprise-grade visual clarity inspired by modern mission-critical analytics environments (Bloomberg Terminal, "
         "Linear, Stripe), the dashboard architecture decouples data transformation from rendering pipelines. "
-        "The presentation tier utilizes <b>React 19</b> with <b>TypeScript</b>, <b>Next.js 15 App Router</b>, and <b>Tailwind CSS</b>, "
+        "The presentation tier utilizes <b>React 19</b> with <b>TypeScript</b>, <b>Next.js 14 App Router</b>, and <b>Tailwind CSS</b>, "
         "employing <b>D3.js (v7)</b> for custom geometric projections and <b>Recharts</b> for optimized responsive SVG containers. "
         "The design system prioritizes high information density, muted monochromatic bases (slate/charcoal), and restrained semantic "
         "accents (royal blue for emergency intake, teal for elective care, rose for acute critical severity).",
@@ -631,7 +629,7 @@ def build_pdf():
     for title, desc in findings:
         story.append(Paragraph(f"• <b>{title}:</b> {desc}", body_style))
 
-    story.append(Spacer(1, 6))
+    story.append(Spacer(1, 4))
     story.append(Paragraph("12.1 Strategic Decision Support for Hospital Administration", h2_style))
     story.append(Paragraph(
         "Based on these empirical insights, three operational interventions are recommended for hospital executive leadership: "
@@ -646,7 +644,7 @@ def build_pdf():
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 10: CONCLUSION, LIMITATIONS, REFS & RUBRICS
+    # PAGE 10: CONCLUSION, REFS & SUBMISSION QR CODE
     # =========================================================================
     story.append(Paragraph("13. Conclusion and Future Scope", h1_style))
     story.append(Paragraph(
@@ -664,18 +662,40 @@ def build_pdf():
         body_style
     ))
 
-    story.append(Paragraph("14. Project Submission Verification and Artifact Directory", h1_style))
-    story.append(Paragraph(
-        "In compliance with SRM IST evaluation guidelines, all project source code, interactive web application assets, "
-        "data processing pipelines, and documentation are publicly version-controlled and deployed.",
-        body_style
-    ))
-    story.append(Paragraph("• <b>Interactive Web Dashboard:</b> Deployed on Vercel with responsive mobile and desktop viewports.", body_style))
-    story.append(Paragraph("• <b>Source Code Repository:</b> Hosted on GitHub at https://github.com/000Shreeharish000/BDV-ASSIGNMENT.git", body_style))
-    story.append(Paragraph("• <b>Dataset & Scripts:</b> Validated CSV & JSON repositories with deterministic Python analysis engines.", body_style))
-    story.append(Paragraph("• <b>Executive Slide Deck:</b> 12-slide comprehensive PowerPoint with full presentation speaker notes.", body_style))
+    story.append(Paragraph("14. Project Submission Verification and Deployed Portal Access", h1_style))
+    
+    # 2-column table with Submission Details on left and embedded QR Code on right!
+    sub_left = [
+        Paragraph("• <b>Live Deployed Dashboard:</b><br/>"
+                  "<font color='#2563eb'><b>https://hospitalanalytics.vercel.app/</b></font>", body_style),
+        Paragraph("• <b>Source Code Repository (GitHub):</b><br/>"
+                  "<font color='#475569'>https://github.com/000Shreeharish000/BDV-ASSIGNMENT.git</font>", body_style),
+        Paragraph("• <b>Continuous Learning Assessment (CLA-2):</b><br/>"
+                  "Course: 21CSE423T | Faculty: Dr. Ganagavalli K | 4,000 Records", body_style),
+        Paragraph("• <b>Evaluation Standards:</b><br/>"
+                  "Interactive D3 suite, cross-filtering, 10-page report & 12-slide presentation.", body_style)
+    ]
 
-    story.append(Spacer(1, 4))
+    qr_img = Image("reports/figures/qr_code.png", width=1.15*inch, height=1.15*inch)
+    sub_right = [
+        qr_img,
+        Paragraph("<b>Scan Live QR Code</b><br/><font size=6.5 color='#2563eb'>hospitalanalytics.vercel.app</font>", ParagraphStyle('QRT', alignment=1, fontSize=7, leading=8.5, textColor=colors.HexColor("#0f172a")))
+    ]
+
+    sub_table = Table([[sub_left, sub_right]], colWidths=[380, 132])
+    sub_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
+        ('BOX', (0, 0), (-1, -1), 0.8, colors.HexColor("#cbd5e1")),
+        ('ALIGN', (1, 0), (1, 0), 'CENTER'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('TOPPADDING', (0, 0), (-1, -1), 5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+    ]))
+    story.append(sub_table)
+
+    story.append(Spacer(1, 3))
     story.append(Paragraph("15. Academic References and Regulatory Standards", h1_style))
     refs = [
         "[1] World Health Organization (WHO), \"International Statistical Classification of Diseases and Related Health Problems (ICD-11),\" Geneva: WHO, 2022.",
@@ -686,13 +706,12 @@ def build_pdf():
         "[6] SRM Institute of Science and Technology, \"Curriculum and Syllabi: 21CSE423T Big Data Visualization (Regulations 2021),\" Tiruchirappalli, 2026."
     ]
     for r in refs:
-        story.append(Paragraph(r, ParagraphStyle('Ref', parent=body_style, fontSize=7.2, leading=9.8, textColor=colors.HexColor("#334155"))))
+        story.append(Paragraph(r, ParagraphStyle('Ref', parent=body_style, fontSize=7.0, leading=9.2, textColor=colors.HexColor("#334155"))))
 
     # Build the document
     doc.build(story, canvasmaker=NumberedCanvas)
     
     # Copy to public/documents
-    import shutil
     shutil.copyfile(pdf_path, public_pdf_path)
     print(f"Academic PDF Report successfully built: {pdf_path} (and copied to {public_pdf_path})")
 

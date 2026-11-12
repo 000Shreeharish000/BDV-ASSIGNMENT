@@ -93,3 +93,4 @@ export const MonthlyTrendChart: React.FC<MonthlyTrendChartProps> = ({
     </div>
   );
 };
+

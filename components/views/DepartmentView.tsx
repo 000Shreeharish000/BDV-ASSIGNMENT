@@ -128,3 +128,4 @@ export const DepartmentView: React.FC = () => {
     </div>
   );
 };
+

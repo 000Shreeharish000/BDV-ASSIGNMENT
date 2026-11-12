@@ -8,6 +8,7 @@ Faculty Handling: Dr. Ganagavalli K
 
 import os
 import json
+import shutil
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN
@@ -41,7 +42,6 @@ def build_presentation():
     BORDER_COLOR = RGBColor(226, 232, 240)   # Slate 200
 
     def add_header(slide, title_text, category_text="21CSE423T: BIG DATA VISUALIZATION | SRM IST TIRUCHIRAPPALLI"):
-        # Header banner
         header_box = slide.shapes.add_textbox(Inches(0.8), Inches(0.4), Inches(11.733), Inches(1.1))
         tf = header_box.text_frame
         tf.word_wrap = True
@@ -66,7 +66,7 @@ def build_presentation():
         bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(7.5))
         bg.fill.solid()
         bg.fill.fore_color.rgb = BG_COLOR
-        bg.line.fill.background() # no border
+        bg.line.fill.background()
 
     # =========================================================================
     # SLIDE 1: TITLE SLIDE
@@ -74,7 +74,6 @@ def build_presentation():
     s1 = prs.slides.add_slide(blank_layout)
     set_slide_background(s1)
 
-    # Accent decorative block
     top_bar = s1.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(0.8), Inches(2.5), Inches(0.08))
     top_bar.fill.solid()
     top_bar.fill.fore_color.rgb = ACCENT_BLUE
@@ -102,7 +101,7 @@ def build_presentation():
     p2.text = "A Multi-Dimensional Interactive Big Data Visualization and Healthcare Analytics Study"
     p2.font.size = Pt(18)
     p2.font.color.rgb = TEXT_MUTED
-    p2.space_after = Pt(28)
+    p2.space_after = Pt(26)
 
     p3 = tf.add_paragraph()
     p3.text = "Continuous Learning Assessment – 2 (CLA-2)  |  Regulations 2021  |  B.Tech. VII Semester"
@@ -111,27 +110,28 @@ def build_presentation():
     p3.font.color.rgb = TEXT_MAIN
 
     # Metadata card at bottom
-    meta_card = s1.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(5.4), Inches(11.733), Inches(1.4))
+    meta_card = s1.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(5.35), Inches(11.733), Inches(1.5))
     meta_card.fill.solid()
     meta_card.fill.fore_color.rgb = CARD_BG
     meta_card.line.color.rgb = BORDER_COLOR
     
-    mtb = s1.shapes.add_textbox(Inches(1.1), Inches(5.55), Inches(11.133), Inches(1.1))
+    mtb = s1.shapes.add_textbox(Inches(1.1), Inches(5.48), Inches(11.133), Inches(1.25))
     mtf = mtb.text_frame
     mtf.word_wrap = True
     mp = mtf.paragraphs[0]
     mp.text = "Course: 21CSE423T — Big Data Visualization       Faculty In-Charge: Dr. Ganagavalli K\n" \
-              "Evaluation Framework: CO2 & CO4 (Bloom's K5 Level)      Dataset: 4,000 Verified Clinical Episodes (FY2024)\n" \
-              "Deliverables: Interactive Web Application (Next.js/D3) • Academic Research Report • Executive Slide Deck"
-    mp.font.size = Pt(13)
+              "Live Vercel Application: https://hospitalanalytics.vercel.app/       Dataset: 4,000 Clinical Records (FY2024)\n" \
+              "Evaluation Standards: CO2 & CO4 (Bloom's K5 Level) • Interactive D3 Suite • 10-Page Research Report"
+    mp.font.size = Pt(12.5)
     mp.font.color.rgb = TEXT_MUTED
 
     s1.notes_slide.notes_text_frame.text = (
         "Good morning, respected Dr. Ganagavalli K and fellow evaluators. Today, I am presenting our Big Data Visualization "
         "Continuous Learning Assessment 2 project titled: Hospital Patient Admission and Disease Distribution Analysis. "
         "This project models 4,000 comprehensive clinical admission records from FY2024 across 10 vital clinical and operational "
-        "dimensions. Our objective is to bridge the critical gap between complex, high-velocity healthcare data and actionable operational "
-        "decision-making, strictly satisfying Course Outcomes CO2 and CO4."
+        "dimensions. Our live portal is deployed on Vercel at https://hospitalanalytics.vercel.app/. Our objective is to bridge the "
+        "critical gap between complex, high-velocity healthcare data and actionable operational decision-making, strictly satisfying "
+        "Course Outcomes CO2 and CO4."
     )
 
     # =========================================================================
@@ -264,7 +264,6 @@ def build_presentation():
     set_slide_background(s4)
     add_header(s4, "Dataset Architecture & Clinical Data Dictionary")
 
-    # Left KPI summary
     kpi_col = s4.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(1.8), Inches(3.6), Inches(5.0))
     kpi_col.fill.solid()
     kpi_col.fill.fore_color.rgb = CARD_BG
@@ -302,7 +301,6 @@ def build_presentation():
         vp.font.color.rgb = TEXT_MAIN
         vp.space_after = Pt(6)
 
-    # Right Table
     rt_card = s4.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(4.7), Inches(1.8), Inches(7.8), Inches(5.0))
     rt_card.fill.solid()
     rt_card.fill.fore_color.rgb = CARD_BG
@@ -353,7 +351,7 @@ def build_presentation():
         ("Stage 1: Ingestion & Integrity", "Duplicate & Anomaly Removal", "Automated validation of temporal chronological order (discharge date >= admission date). Zero null records, zero orphaned foreign references."),
         ("Stage 2: Transformation", "Feature Engineering & Binning", "Derivation of chronological dimensions: calendar month, ISO day-of-week, quarter index, and demographic categorization into 5 clinical age tiers."),
         ("Stage 3: Statistical Validation", "Log-Normal Modeling & Cross-Tab", "Parametric fitting of Length of Stay distributions. Deterministic matrix computation for zero discrepancy across web, PDF, and slide deliverables."),
-        ("Stage 4: Responsive UI Stack", "React 19 + Next.js 15 + D3.js", "Modern reactive web application utilizing Tailwind CSS for minimal styling, D3 for custom geometry, and Lucide icons for enterprise visual affordance.")
+        ("Stage 4: Responsive UI Stack", "React 19 + Next.js 14 + D3.js", "Modern reactive web application deployed on Vercel at https://hospitalanalytics.vercel.app/ utilizing Tailwind CSS and Lucide icons.")
     ]
 
     for idx, (stage, title, desc) in enumerate(steps):
@@ -389,8 +387,8 @@ def build_presentation():
     s5.notes_slide.notes_text_frame.text = (
         "Data hygiene is foundational to reliable visual analytics. Our preprocessing pipeline executed a three-stage ETL protocol "
         "in Python, validating data integrity, generating chronological metadata, and mathematically verifying log-normal stay distributions. "
-        "On the presentation side, we engineered a modern web platform built on React 19, Next.js 15, and D3.js v7. All calculations are "
-        "deterministic: the exact figures you see on this slide deck match the web dashboard and academic report to the last decimal place."
+        "On the presentation side, our production web platform is live at https://hospitalanalytics.vercel.app/, built on React 19, "
+        "Next.js 14, and D3.js v7. All calculations are deterministic across our live web portal, 10-page report, and slide deck."
     )
 
     # =========================================================================
@@ -400,10 +398,8 @@ def build_presentation():
     set_slide_background(s6)
     add_header(s6, "Patient Admission Analysis — Temporal Dynamics & Influx Surges")
 
-    # Image Left
     s6.shapes.add_picture("presentation/figures/fig1_monthly_admissions.png", Inches(0.8), Inches(1.8), width=Inches(6.8))
 
-    # Text Right
     rc = s6.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.9), Inches(1.8), Inches(4.6), Inches(4.8))
     rc.fill.solid()
     rc.fill.fore_color.rgb = CARD_BG
@@ -447,10 +443,8 @@ def build_presentation():
     set_slide_background(s7)
     add_header(s7, "Disease Distribution Analysis — Clinical Epidemiology")
 
-    # Image Left
     s7.shapes.add_picture("presentation/figures/fig2_disease_distribution.png", Inches(0.8), Inches(1.8), width=Inches(6.8))
 
-    # Text Right
     rc = s7.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.9), Inches(1.8), Inches(4.6), Inches(4.8))
     rc.fill.solid()
     rc.fill.fore_color.rgb = CARD_BG
@@ -493,10 +487,8 @@ def build_presentation():
     set_slide_background(s8)
     add_header(s8, "Demographic Stratification — Age Cohorts & Gender Disparities")
 
-    # Image Left
     s8.shapes.add_picture("presentation/figures/fig3_demographics.png", Inches(0.8), Inches(1.8), width=Inches(6.8))
 
-    # Text Right
     rc = s8.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.9), Inches(1.8), Inches(4.6), Inches(4.8))
     rc.fill.solid()
     rc.fill.fore_color.rgb = CARD_BG
@@ -540,10 +532,8 @@ def build_presentation():
     set_slide_background(s9)
     add_header(s9, "Departmental Workload & Operational Capacity Analysis")
 
-    # Image Left
     s9.shapes.add_picture("presentation/figures/fig4_dept_workload_los.png", Inches(0.8), Inches(1.8), width=Inches(6.8))
 
-    # Text Right
     rc = s9.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.9), Inches(1.8), Inches(4.6), Inches(4.8))
     rc.fill.solid()
     rc.fill.fore_color.rgb = CARD_BG
@@ -587,10 +577,8 @@ def build_presentation():
     set_slide_background(s10)
     add_header(s10, "Length of Stay (LOS) Dynamics & Distribution Modeling")
 
-    # Image Left
     s10.shapes.add_picture("presentation/figures/fig5_los_distribution.png", Inches(0.8), Inches(1.8), width=Inches(6.8))
 
-    # Text Right
     rc = s10.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.9), Inches(1.8), Inches(4.6), Inches(4.8))
     rc.fill.solid()
     rc.fill.fore_color.rgb = CARD_BG
@@ -633,7 +621,6 @@ def build_presentation():
     set_slide_background(s11)
     add_header(s11, "Strategic Clinical Insights & Managerial Recommendations")
 
-    # 3 Recommendation columns
     recs = [
         ("Intervention 1", "Flexible Acuity Step-Down Beds", "Convert 20% of general medical beds into High-Dependency Units (HDUs) during winter to decompress ICU step-down bottlenecks, reducing ICU bed-blocking by an estimated 18%."),
         ("Intervention 2", "Weekend Trauma Theater Coverage", "Expand dedicated orthopedic operating slots on Saturdays and Sundays to mitigate weekend trauma delays, reducing pre-operative waiting times by 1.1 days per trauma case."),
@@ -677,24 +664,24 @@ def build_presentation():
     )
 
     # =========================================================================
-    # SLIDE 12: CONCLUSION, DEMO & PROJECT ACCESS
+    # SLIDE 12: CONCLUSION, DEMO & PROJECT ACCESS (WITH QR CODE)
     # =========================================================================
     s12 = prs.slides.add_slide(blank_layout)
     set_slide_background(s12)
-    add_header(s12, "Project Demonstration, Artifacts & Evaluation Summary")
+    add_header(s12, "Project Demonstration, Artifacts & Live Submission Access")
 
-    # Left Card
-    lc = s12.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(1.8), Inches(5.6), Inches(5.0))
+    # Left Card: Evaluation Summary
+    lc = s12.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(1.8), Inches(5.4), Inches(5.0))
     lc.fill.solid()
     lc.fill.fore_color.rgb = CARD_BG
     lc.line.color.rgb = BORDER_COLOR
 
-    ltb = s12.shapes.add_textbox(Inches(1.1), Inches(2.0), Inches(5.0), Inches(4.5))
+    ltb = s12.shapes.add_textbox(Inches(1.05), Inches(2.0), Inches(4.9), Inches(4.5))
     ltf = ltb.text_frame
     ltf.word_wrap = True
     p = ltf.paragraphs[0]
     p.text = "Evaluation Summary (CLA-2 Rubrics)"
-    p.font.size = Pt(18)
+    p.font.size = Pt(17)
     p.font.bold = True
     p.font.color.rgb = ACCENT_BLUE
     p.space_after = Pt(10)
@@ -708,49 +695,76 @@ def build_presentation():
     for rp in rub_pts:
         p = ltf.add_paragraph()
         p.text = "✓ " + rp
-        p.font.size = Pt(12)
+        p.font.size = Pt(11.5)
         p.font.color.rgb = TEXT_MAIN
-        p.space_after = Pt(7)
+        p.space_after = Pt(6)
 
-    # Right Card
-    rc = s12.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.8), Inches(1.8), Inches(5.7), Inches(5.0))
+    # Right Card: Live Vercel Access & QR Code
+    rc = s12.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.5), Inches(1.8), Inches(6.0), Inches(5.0))
     rc.fill.solid()
     rc.fill.fore_color.rgb = CARD_BG
     rc.line.color.rgb = BORDER_COLOR
 
-    rtb = s12.shapes.add_textbox(Inches(7.1), Inches(2.0), Inches(5.1), Inches(4.5))
+    rtb = s12.shapes.add_textbox(Inches(6.8), Inches(2.0), Inches(5.4), Inches(2.1))
     rtf = rtb.text_frame
     rtf.word_wrap = True
     p = rtf.paragraphs[0]
-    p.text = "Project Access & Live Demonstration"
-    p.font.size = Pt(18)
+    p.text = "Live Deployment & Submission Access"
+    p.font.size = Pt(17)
     p.font.bold = True
     p.font.color.rgb = ACCENT_TEAL
-    p.space_after = Pt(10)
+    p.space_after = Pt(8)
 
     demo_pts = [
-        "Interactive Dashboard: Production Next.js 15 application ready for immediate Vercel deployment.",
-        "GitHub Repository: Hosted at github.com/000Shreeharish000/BDV-ASSIGNMENT.",
-        "Academic PDF Report: Complete 10-page publication-grade PDF stored in /public/documents/.",
-        "Dynamic QR Utility: Embedded in dashboard landing page for direct mobile scanning to the live URL.",
-        "Demonstration: We now transition to the live interactive web dashboard demonstration."
+        "Live Deployed Portal: https://hospitalanalytics.vercel.app/",
+        "GitHub Repository: https://github.com/000Shreeharish000/BDV-ASSIGNMENT",
+        "Academic PDF Report: 10 Pages (downloadable via portal)",
+        "Live Demonstration: Transitioning now to interactive web session."
     ]
     for dp in demo_pts:
         p = rtf.add_paragraph()
         p.text = "• " + dp
-        p.font.size = Pt(12)
+        p.font.size = Pt(11.5)
         p.font.color.rgb = TEXT_MAIN
-        p.space_after = Pt(8)
+        p.space_after = Pt(4)
+
+    # Embed QR Code Picture on Slide 12!
+    qr_pic_path = "presentation/figures/qr_code.png"
+    if os.path.exists(qr_pic_path):
+        s12.shapes.add_picture(qr_pic_path, Inches(6.8), Inches(4.3), width=Inches(2.2), height=Inches(2.2))
+        
+        qr_text_box = s12.shapes.add_textbox(Inches(9.2), Inches(4.5), Inches(3.0), Inches(1.8))
+        qtf = qr_text_box.text_frame
+        qtf.word_wrap = True
+        qp1 = qtf.paragraphs[0]
+        qp1.text = "SCAN QR CODE"
+        qp1.font.size = Pt(13)
+        qp1.font.bold = True
+        qp1.font.color.rgb = ACCENT_BLUE
+        qp1.space_after = Pt(4)
+
+        qp2 = qtf.add_paragraph()
+        qp2.text = "Scan with any smartphone camera to launch the live interactive hospital analytics portal at:"
+        qp2.font.size = Pt(10.5)
+        qp2.font.color.rgb = TEXT_MUTED
+        qp2.space_after = Pt(4)
+
+        qp3 = qtf.add_paragraph()
+        qp3.text = "hospitalanalytics.vercel.app"
+        qp3.font.size = Pt(11)
+        qp3.font.bold = True
+        qp3.font.color.rgb = TEXT_MAIN
 
     s12.notes_slide.notes_text_frame.text = (
         "In conclusion, this project fulfills all expectations of the SRM Continuous Learning Assessment 2 for Big Data Visualization. "
+        "Our dashboard is publicly hosted and live at https://hospitalanalytics.vercel.app/. Evaluators can scan the QR code displayed on "
+        "this slide with any mobile camera to interact with the responsive dashboard directly on their mobile device or laptop. "
         "We have verified our findings across all three interconnected deliverables: this 12-slide presentation, our 10-page formal "
         "academic report, and our interactive web application. We now transition directly to the live demonstration of the web dashboard. "
         "Thank you, and I look forward to your questions."
     )
 
     prs.save(pptx_path)
-    import shutil
     shutil.copyfile(pptx_path, public_pptx_path)
     print(f"PowerPoint Presentation successfully built: {pptx_path} (and copied to {public_pptx_path})")
 

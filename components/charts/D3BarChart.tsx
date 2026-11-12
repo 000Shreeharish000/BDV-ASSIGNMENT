@@ -207,3 +207,4 @@ export const D3BarChart: React.FC<D3BarChartProps> = ({
     </div>
   );
 };
+

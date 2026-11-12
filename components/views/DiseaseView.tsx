@@ -124,3 +124,4 @@ export const DiseaseView: React.FC = () => {
     </div>
   );
 };
+

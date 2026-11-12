@@ -5,7 +5,7 @@ import QRCode from "qrcode";
 import { QrCode as QrIcon, Download, ExternalLink, Check, Copy } from "lucide-react";
 
 export const QrGenerator: React.FC = () => {
-  const [url, setUrl] = useState<string>("https://bdv-assignment.vercel.app");
+  const [url, setUrl] = useState<string>("https://hospitalanalytics.vercel.app/");
   const [qrPngUrl, setQrPngUrl] = useState<string>("");
   const [qrSvgString, setQrSvgString] = useState<string>("");
   const [copied, setCopied] = useState<boolean>(false);
@@ -173,3 +173,4 @@ export const QrGenerator: React.FC = () => {
     </div>
   );
 };
+

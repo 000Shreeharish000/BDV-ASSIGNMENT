@@ -79,3 +79,4 @@ export interface FilterState {
   month: string;
   searchQuery: string;
 }
+

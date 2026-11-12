@@ -183,3 +183,4 @@ export const DemographicsChart: React.FC<DemographicsChartProps> = ({
     </div>
   );
 };
+

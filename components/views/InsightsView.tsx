@@ -116,3 +116,4 @@ export const InsightsView: React.FC = () => {
     </div>
   );
 };
+

@@ -111,3 +111,4 @@ export const AdmissionsView: React.FC = () => {
     </div>
   );
 };
+

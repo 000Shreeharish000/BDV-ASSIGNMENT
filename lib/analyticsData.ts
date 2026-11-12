@@ -211,3 +211,4 @@ export function computeAnalytics(records: HospitalRecord[]): AnalyticalSummary {
     insights,
   };
 }
+
