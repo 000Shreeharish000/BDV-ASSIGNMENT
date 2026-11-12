@@ -37,7 +37,7 @@ export const SubmissionView: React.FC = () => {
       criteria: "Analysis & Interpretation of Hospital Data",
       maxMarks: 5,
       awarded: "5.0 (Excellent)",
-      proof: "8 programmatic key findings, quantitative statistical modeling, 17-page academic PDF report, and 12-slide PowerPoint.",
+      proof: "8 programmatic key findings, quantitative statistical modeling, 22-page academic PDF report, and 15-slide PowerPoint.",
     },
   ];
 
@@ -66,7 +66,7 @@ export const SubmissionView: React.FC = () => {
                 <FileText className="w-5 h-5" />
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">
-                17 Pages PDF
+                22 Pages PDF
               </span>
             </div>
             <h3 className="text-sm font-bold text-slate-100 mb-1">
@@ -97,14 +97,14 @@ export const SubmissionView: React.FC = () => {
                 <Presentation className="w-5 h-5" />
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">
-                12 Widescreen Slides
+                15 Widescreen Slides
               </span>
             </div>
             <h3 className="text-sm font-bold text-slate-100 mb-1">
               Executive Presentation Slide Deck
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              12 high-density slides containing actual charts, verified metrics, and complete speaker notes for an 8–15 minute presentation.
+              15 high-density slides containing actual charts, verified metrics, and complete speaker notes for an 8–15 minute presentation.
             </p>
           </div>
 
