@@ -1,0 +1,343 @@
+{
+  "kpis": {
+    "total_admissions": 4000,
+    "unique_patients": 4000,
+    "avg_los": 7.45,
+    "median_los": 7,
+    "emergency_pct": 53.8,
+    "top_disease": "Cardiovascular Diseases",
+    "top_disease_count": 862,
+    "top_disease_pct": 21.6,
+    "top_department": "Cardiology",
+    "top_department_count": 786,
+    "top_dept_pct": 19.7,
+    "total_revenue_inr": 269334523,
+    "avg_cost_inr": 67333
+  },
+  "admission_types": {
+    "Emergency": 2151,
+    "Urgent": 1092,
+    "Elective / Scheduled": 757
+  },
+  "disease_distribution": {
+    "Cardiovascular Diseases": 862,
+    "Respiratory Infections": 669,
+    "Gastrointestinal Conditions": 594,
+    "Neurological Disorders": 551,
+    "Orthopedic Trauma": 494,
+    "Endocrine & Metabolic": 312,
+    "Oncology & Neoplasms": 281,
+    "Infectious & Parasitic": 237
+  },
+  "department_workload": {
+    "Cardiology": 786,
+    "Pulmonology": 598,
+    "Gastroenterology": 594,
+    "Neurology": 500,
+    "Orthopedics": 494,
+    "Endocrinology": 312,
+    "Oncology": 281,
+    "Intensive Care Unit (ICU)": 222,
+    "General Medicine": 213
+  },
+  "los_by_department": [
+    {
+      "department": "Cardiology",
+      "mean": 7.97,
+      "median": 7.0,
+      "std": 3.22,
+      "count": 786
+    },
+    {
+      "department": "Endocrinology",
+      "mean": 4.96,
+      "median": 5.0,
+      "std": 2.12,
+      "count": 312
+    },
+    {
+      "department": "Gastroenterology",
+      "mean": 5.09,
+      "median": 5.0,
+      "std": 2.03,
+      "count": 594
+    },
+    {
+      "department": "General Medicine",
+      "mean": 6.57,
+      "median": 6.0,
+      "std": 2.96,
+      "count": 213
+    },
+    {
+      "department": "Intensive Care Unit (ICU)",
+      "mean": 13.86,
+      "median": 13.0,
+      "std": 5.47,
+      "count": 222
+    },
+    {
+      "department": "Neurology",
+      "mean": 9.36,
+      "median": 9.0,
+      "std": 3.7,
+      "count": 500
+    },
+    {
+      "department": "Oncology",
+      "mean": 9.91,
+      "median": 9.0,
+      "std": 4.69,
+      "count": 281
+    },
+    {
+      "department": "Orthopedics",
+      "mean": 7.04,
+      "median": 6.0,
+      "std": 3.09,
+      "count": 494
+    },
+    {
+      "department": "Pulmonology",
+      "mean": 5.93,
+      "median": 5.0,
+      "std": 2.52,
+      "count": 598
+    }
+  ],
+  "los_by_disease": [
+    {
+      "disease_category": "Cardiovascular Diseases",
+      "mean": 8.56,
+      "median": 8.0,
+      "count": 862
+    },
+    {
+      "disease_category": "Endocrine & Metabolic",
+      "mean": 4.96,
+      "median": 5.0,
+      "count": 312
+    },
+    {
+      "disease_category": "Gastrointestinal Conditions",
+      "mean": 5.09,
+      "median": 5.0,
+      "count": 594
+    },
+    {
+      "disease_category": "Infectious & Parasitic",
+      "mean": 7.17,
+      "median": 6.0,
+      "count": 237
+    },
+    {
+      "disease_category": "Neurological Disorders",
+      "mean": 9.97,
+      "median": 9.0,
+      "count": 551
+    },
+    {
+      "disease_category": "Oncology & Neoplasms",
+      "mean": 9.91,
+      "median": 9.0,
+      "count": 281
+    },
+    {
+      "disease_category": "Orthopedic Trauma",
+      "mean": 7.04,
+      "median": 6.0,
+      "count": 494
+    },
+    {
+      "disease_category": "Respiratory Infections",
+      "mean": 6.57,
+      "median": 6.0,
+      "count": 669
+    }
+  ],
+  "age_groups": {
+    "Senior (56-70)": 1249,
+    "Middle-Aged (36-55)": 1142,
+    "Geriatric (71+)": 711,
+    "Young Adult (18-35)": 571,
+    "Pediatric (0-17)": 327
+  },
+  "gender_distribution": {
+    "Male": 2112,
+    "Female": 1850,
+    "Other": 38
+  },
+  "monthly_trends": {
+    "Jan": 376,
+    "Feb": 306,
+    "Mar": 333,
+    "Apr": 312,
+    "May": 319,
+    "Jun": 319,
+    "Jul": 358,
+    "Aug": 341,
+    "Sep": 352,
+    "Oct": 336,
+    "Nov": 309,
+    "Dec": 339
+  },
+  "monthly_by_type": {
+    "Elective / Scheduled": {
+      "Jan": 70,
+      "Feb": 63,
+      "Mar": 60,
+      "Apr": 57,
+      "May": 61,
+      "Jun": 60,
+      "Jul": 68,
+      "Aug": 62,
+      "Sep": 62,
+      "Oct": 60,
+      "Nov": 66,
+      "Dec": 68
+    },
+    "Emergency": {
+      "Jan": 194,
+      "Feb": 175,
+      "Mar": 182,
+      "Apr": 176,
+      "May": 172,
+      "Jun": 158,
+      "Jul": 189,
+      "Aug": 177,
+      "Sep": 201,
+      "Oct": 179,
+      "Nov": 160,
+      "Dec": 188
+    },
+    "Urgent": {
+      "Jan": 112,
+      "Feb": 68,
+      "Mar": 91,
+      "Apr": 79,
+      "May": 86,
+      "Jun": 101,
+      "Jul": 101,
+      "Aug": 102,
+      "Sep": 89,
+      "Oct": 97,
+      "Nov": 83,
+      "Dec": 83
+    }
+  },
+  "day_of_week_trends": {
+    "Mon": 587,
+    "Tue": 599,
+    "Wed": 567,
+    "Thu": 527,
+    "Fri": 562,
+    "Sat": 619,
+    "Sun": 539
+  },
+  "severity_distribution": {
+    "Moderate": 1901,
+    "Severe": 1243,
+    "Mild": 647,
+    "Critical": 209
+  },
+  "discharge_status": {
+    "Discharged - Home": 3404,
+    "Discharged - Rehab": 460,
+    "Transferred": 94,
+    "Mortality": 42
+  },
+  "cross_disease_age": {
+    "Geriatric (71+)": {
+      "Cardiovascular Diseases": 188,
+      "Endocrine & Metabolic": 35,
+      "Gastrointestinal Conditions": 46,
+      "Infectious & Parasitic": 45,
+      "Neurological Disorders": 117,
+      "Oncology & Neoplasms": 64,
+      "Orthopedic Trauma": 91,
+      "Respiratory Infections": 125
+    },
+    "Middle-Aged (36-55)": {
+      "Cardiovascular Diseases": 240,
+      "Endocrine & Metabolic": 105,
+      "Gastrointestinal Conditions": 208,
+      "Infectious & Parasitic": 65,
+      "Neurological Disorders": 140,
+      "Oncology & Neoplasms": 92,
+      "Orthopedic Trauma": 126,
+      "Respiratory Infections": 166
+    },
+    "Pediatric (0-17)": {
+      "Cardiovascular Diseases": 22,
+      "Endocrine & Metabolic": 18,
+      "Gastrointestinal Conditions": 58,
+      "Infectious & Parasitic": 28,
+      "Neurological Disorders": 26,
+      "Oncology & Neoplasms": 6,
+      "Orthopedic Trauma": 38,
+      "Respiratory Infections": 131
+    },
+    "Senior (56-70)": {
+      "Cardiovascular Diseases": 339,
+      "Endocrine & Metabolic": 100,
+      "Gastrointestinal Conditions": 152,
+      "Infectious & Parasitic": 47,
+      "Neurological Disorders": 216,
+      "Oncology & Neoplasms": 95,
+      "Orthopedic Trauma": 131,
+      "Respiratory Infections": 169
+    },
+    "Young Adult (18-35)": {
+      "Cardiovascular Diseases": 73,
+      "Endocrine & Metabolic": 54,
+      "Gastrointestinal Conditions": 130,
+      "Infectious & Parasitic": 52,
+      "Neurological Disorders": 52,
+      "Oncology & Neoplasms": 24,
+      "Orthopedic Trauma": 108,
+      "Respiratory Infections": 78
+    }
+  },
+  "cross_disease_gender": {
+    "Female": {
+      "Cardiovascular Diseases": 370,
+      "Endocrine & Metabolic": 155,
+      "Gastrointestinal Conditions": 285,
+      "Infectious & Parasitic": 113,
+      "Neurological Disorders": 300,
+      "Oncology & Neoplasms": 145,
+      "Orthopedic Trauma": 169,
+      "Respiratory Infections": 313
+    },
+    "Male": {
+      "Cardiovascular Diseases": 483,
+      "Endocrine & Metabolic": 154,
+      "Gastrointestinal Conditions": 303,
+      "Infectious & Parasitic": 121,
+      "Neurological Disorders": 246,
+      "Oncology & Neoplasms": 134,
+      "Orthopedic Trauma": 320,
+      "Respiratory Infections": 351
+    },
+    "Other": {
+      "Cardiovascular Diseases": 9,
+      "Endocrine & Metabolic": 3,
+      "Gastrointestinal Conditions": 6,
+      "Infectious & Parasitic": 3,
+      "Neurological Disorders": 5,
+      "Oncology & Neoplasms": 2,
+      "Orthopedic Trauma": 5,
+      "Respiratory Infections": 5
+    }
+  },
+  "insights": [
+    "Total clinical admissions logged across FY2024 reached 4,000 patients with an average hospital stay of 7.45 days (median: 7 days).",
+    "Cardiovascular Diseases represent the highest single diagnostic burden (862 admissions, 21.6%), followed closely by Respiratory Infections (669 admissions).",
+    "Emergency admissions constitute 53.8% of total hospital intake (2,151 patients), indicating high acute-care dependence.",
+    "Departmental operational load is led by Cardiology (786 patients, 19.7%), followed by Pulmonology (598 patients).",
+    "Length of Stay (LOS) varies significantly by operational unit: Intensive Care Unit (ICU) exhibits the longest average stay (13.86 days), whereas Endocrinology maintains the most rapid turnaround (4.96 days).",
+    "Senior (56-70) and Geriatric (71+) cohorts together account for 49.0% of total bed-days, with Cardiovascular conditions predominating in both cohorts.",
+    "Oncology & Neoplasms exhibits the highest condition-specific length of stay (9.97 days average), reflecting extensive chemotherapy and post-surgical monitoring regimens.",
+    "Total financial volume generated across all episodes is \u20b9269,334,523 (average \u20b967,333 per admission episode) with 48% private comprehensive insurance coverage."
+  ]
+}
