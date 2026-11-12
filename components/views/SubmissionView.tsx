@@ -37,7 +37,7 @@ export const SubmissionView: React.FC = () => {
       criteria: "Analysis & Interpretation of Hospital Data",
       maxMarks: 5,
       awarded: "5.0 (Excellent)",
-      proof: "8 programmatic key findings, quantitative statistical modeling, 10-page academic PDF report, and 12-slide PowerPoint.",
+      proof: "8 programmatic key findings, quantitative statistical modeling, 17-page academic PDF report, and 12-slide PowerPoint.",
     },
   ];
 
@@ -66,7 +66,7 @@ export const SubmissionView: React.FC = () => {
                 <FileText className="w-5 h-5" />
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">
-                10 Pages PDF
+                17 Pages PDF
               </span>
             </div>
             <h3 className="text-sm font-bold text-slate-100 mb-1">

@@ -19,7 +19,7 @@ Modern tertiary healthcare facilities operate under extreme operational volatili
 
 The system is deployed as three synchronized deliverables that maintain exact mathematical consistency:
 1. **Interactive Web Dashboard:** A responsive, Bloomberg/Linear-inspired analytics portal built with Next.js 14, React 19, TypeScript, D3.js (v7), and Tailwind CSS.
-2. **Academic Research Report:** A publication-grade 10-page formal PDF report formatted with embedded figures, data dictionary tables, statistical modeling, and academic citations.
+2. **Academic Research Report:** A publication-grade 17-page formal project report formatted according to SRM B.Tech project guidelines with official cover page, bonafide certificate, literature tables, architecture diagrams, code listings, embedded figures, data dictionary tables, statistical modeling, and CLA-2 evaluation rubrics.
 3. **Executive Presentation:** A 12-slide widescreen PowerPoint presentation complete with verbatim speaker notes for an 8–15 minute evaluation talk.
 
 ---
@@ -49,7 +49,7 @@ All conclusions are derived deterministically through our automated Python analy
 | **Visualizations** | D3.js (v7), Recharts 2.15, SVG | Custom geometric projections, interactive donut arcs, and responsive charts |
 | **Icons & Affordances** | Lucide React | High-clarity semantic UI indicators |
 | **ETL & Data Pipeline** | Python 3.12, Pandas, NumPy | Cleaning, feature engineering, and log-normal LOS parametric modeling |
-| **Report Generation** | ReportLab 5.1 | Academic 10-page PDF compilation with exact running headers and canvas numbering |
+| **Report Generation** | ReportLab 5.1 | Academic 17-page PDF compilation matching SRM B.Tech departmental template |
 | **Slide Generation** | python-pptx 1.0 | 12-slide executive presentation with slide notes |
 | **Deployment** | Vercel (Edge Network) | Production global distribution with zero cold-starts |
 
@@ -166,7 +166,7 @@ python scripts/generate_and_process_data.py
 # 2. Run statistical analysis engine and render publication figures
 python scripts/analyze_dataset.py
 
-# 3. Compile 10-page academic PDF report
+# 3. Compile 17-page academic PDF report
 python scripts/generate_academic_pdf.py
 
 # 4. Compile 12-slide PowerPoint presentation

@@ -67,7 +67,7 @@ const MainContent: React.FC = () => {
               href="/documents/Hospital_Patient_Admission_Analysis_Report.pdf"
               download
               className="px-2.5 py-1 text-xs font-medium text-slate-300 hover:text-white bg-slate-800 border border-slate-700 rounded flex items-center space-x-1.5 transition-colors"
-              title="Download 10-page Academic PDF Report"
+              title="Download 17-page Academic PDF Report"
             >
               <FileText className="w-3.5 h-3.5 text-rose-400" />
               <span className="hidden md:inline">PDF Report</span>
