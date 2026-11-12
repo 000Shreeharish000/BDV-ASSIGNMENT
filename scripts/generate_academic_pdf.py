@@ -4,10 +4,8 @@ Formatted to EXACTLY match the SRM B.Tech project template shown in the user ref
 Course: 21CSE423T - Big Data Visualization
 Faculty In-Charge & Supervisor: DR. GANAGAVALLI K (Assistant Professor, Dept of IT)
 Head of Department: DR. YUVARAJ (Associate Professor & Head, Dept of CSE)
-Team Members:
-  1. SHREE HARISH V [Reg No: RA2311027050036]
-  2. SHIRAVANI DOSS M [Reg No: RA2311027050029]
-  3. CHETHAN CHARMANNA PK [Reg No: RA2311027050008]
+Team Member:
+  SHREE HARISH V [Reg No: RA2311027050036]
 Live Portal: https://hospitalanalytics.vercel.app/
 """
 
@@ -321,11 +319,10 @@ def build_pdf():
     story.append(Paragraph("A Project Report", cover_report_type))
     story.append(Paragraph("Submitted by", cover_sub_by))
     story.append(Paragraph(
-        "SHREE HARISH V [Reg No: RA2311027050036]<br/>"
-        "SHIRAVANI DOSS M [Reg No: RA2311027050029]<br/>"
-        "CHETHAN CHARMANNA PK [Reg No: RA2311027050008]",
+        "SHREE HARISH V [Reg No: RA2311027050036]",
         cover_names
     ))
+    story.append(Spacer(1, 14))
     story.append(Paragraph("Under the guidance of", cover_guide_label))
     story.append(Paragraph("DR. GANAGAVALLI K", cover_guide_name))
     story.append(Paragraph("(Assistant Professor, Department of Information Technology)", cover_guide_desig))
@@ -362,11 +359,11 @@ def build_pdf():
     story.append(Spacer(1, 15))
 
     decl_text = (
-        "We hereby declare that the project report entitled “<b>HOSPITAL PATIENT ADMISSION AND DISEASE "
+        "I hereby declare that the project report entitled “<b>HOSPITAL PATIENT ADMISSION AND DISEASE "
         "DISTRIBUTION ANALYSIS: AN INTERACTIVE VISUAL ANALYTICS PLATFORM FOR CLINICAL CAPACITY "
         "OPTIMIZATION</b>” submitted for the degree of Bachelor of Technology in the Department of Computer "
         "Science and Engineering with Specialization in Big Data Analytics, SRM Institute of Science and Technology, "
-        "Tiruchirappalli, is a record of our own work carried out under the guidance of <b>DR. GANAGAVALLI K</b>. "
+        "Tiruchirappalli, is a record of my own work carried out under the guidance of <b>DR. GANAGAVALLI K</b>. "
         "The work has not been submitted, in part or in full, for any other degree or diploma."
     )
     story.append(Paragraph(decl_text, body_academic))
@@ -375,12 +372,10 @@ def build_pdf():
     story.append(Paragraph("Place: SRM Institute of Science and Technology, Tiruchirappalli", body_academic))
     story.append(Spacer(1, 4))
     story.append(Paragraph("Date:", body_academic))
-    story.append(Spacer(1, 60))
+    story.append(Spacer(1, 75))
 
     names_block = [
-        Paragraph("SHREE HARISH V [Reg No: RA2311027050036]", ParagraphStyle('D1', fontName='Times-Roman', fontSize=10.5, leading=14, alignment=2)),
-        Paragraph("SHIRAVANI DOSS M [Reg No: RA2311027050029]", ParagraphStyle('D2', fontName='Times-Roman', fontSize=10.5, leading=14, alignment=2)),
-        Paragraph("CHETHAN CHARMANNA PK [Reg No: RA2311027050008]", ParagraphStyle('D3', fontName='Times-Roman', fontSize=10.5, leading=14, alignment=2))
+        Paragraph("SHREE HARISH V [Reg No: RA2311027050036]", ParagraphStyle('D1', fontName='Times-Roman', fontSize=10.5, leading=14, alignment=2))
     ]
     for nb in names_block:
         story.append(nb)
@@ -398,8 +393,7 @@ def build_pdf():
     cert_text = (
         "Certified that this project report titled “<b>HOSPITAL PATIENT ADMISSION AND DISEASE DISTRIBUTION "
         "ANALYSIS: AN INTERACTIVE VISUAL ANALYTICS PLATFORM FOR CLINICAL CAPACITY OPTIMIZATION</b>” is the "
-        "bonafide work of <b>SHREE HARISH V [Reg No: RA2311027050036]</b>, <b>SHIRAVANI DOSS M [Reg No: "
-        "RA2311027050029]</b> and <b>CHETHAN CHARMANNA PK [Reg No: RA2311027050008]</b>, who carried out the "
+        "bonafide work of <b>SHREE HARISH V [Reg No: RA2311027050036]</b>, who carried out the "
         "work (21CSE423T) under my supervision for the degree of Bachelor of Technology in Computer Science and "
         "Engineering with Specialization in Big Data Analytics."
     )
@@ -436,7 +430,7 @@ def build_pdf():
     story.append(Spacer(1, 10))
 
     ack1 = (
-        "We express our sincere gratitude to the management of SRM Institute of Science and Technology, "
+        "I express my sincere gratitude to the management of SRM Institute of Science and Technology, "
         "Tiruchirappalli, for providing an academic environment, laboratory facilities and learning resources "
         "that made this work possible."
     )
@@ -444,29 +438,29 @@ def build_pdf():
     story.append(Spacer(1, 4))
 
     ack2 = (
-        "We are grateful to the Department of Computer Science and Engineering with Specialization in Big Data Analytics "
-        "for its encouragement, and for a curriculum that allowed us to bring big data visualization, reactive client-side "
+        "I am grateful to the Department of Computer Science and Engineering with Specialization in Big Data Analytics "
+        "for its encouragement, and for a curriculum that allowed me to bring big data visualization, reactive client-side "
         "cross-filtering, statistical modeling and healthcare analytics together in one project."
     )
     story.append(Paragraph(ack2, body_academic))
     story.append(Spacer(1, 4))
 
     ack3 = (
-        "We extend our heartfelt thanks to our guide, <b>DR. GANAGAVALLI K</b>, for valuable guidance, constructive feedback "
-        "and patient support throughout the work. We also thank the Head of the Department, <b>Dr. YUVARAJ</b>, and the faculty "
+        "I extend my heartfelt thanks to my guide, <b>DR. GANAGAVALLI K</b>, for valuable guidance, constructive feedback "
+        "and patient support throughout the work. I also thank the Head of the Department, <b>Dr. YUVARAJ</b>, and the faculty "
         "members for their advice."
     )
     story.append(Paragraph(ack3, body_academic))
     story.append(Spacer(1, 4))
 
     ack4 = (
-        "We thank our institutional reviewers and laboratory staff for the opportunity to validate this visual analytics platform, "
+        "I thank my institutional reviewers and laboratory staff for the opportunity to validate this visual analytics platform, "
         "and for their constructive evaluation during testing of the interactive D3.js geometries and Vercel edge deployment."
     )
     story.append(Paragraph(ack4, body_academic))
     story.append(Spacer(1, 4))
 
-    ack5 = "Finally, we thank our families and friends for their continuous motivation."
+    ack5 = "Finally, I thank my family and friends for their continuous motivation."
     story.append(Paragraph(ack5, body_academic))
     story.append(PageBreak())
 
@@ -1335,7 +1329,7 @@ def build_pdf():
         Paragraph("• <b>Live Portal:</b> https://hospitalanalytics.vercel.app/", body_academic_compact),
         Paragraph("• <b>GitHub Repository:</b> https://github.com/000Shreeharish000/BDV-ASSIGNMENT.git", body_academic_compact),
         Paragraph("• <b>Course:</b> 21CSE423T Big Data Visualization | <b>Faculty:</b> Dr. Ganagavalli K", body_academic_compact),
-        Paragraph("• <b>Candidates:</b> Shree Harish V, Shiravani Doss M, Chethan Charmanna PK", body_academic_compact)
+        Paragraph("• <b>Candidate:</b> Shree Harish V [Reg No: RA2311027050036]", body_academic_compact)
     ]
     qr_img = Image("reports/figures/qr_code.png", width=0.75*inch, height=0.75*inch)
     app_right = [

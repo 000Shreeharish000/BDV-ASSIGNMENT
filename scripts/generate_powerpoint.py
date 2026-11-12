@@ -4,10 +4,8 @@ Produces an exact 15-slide presentation with embedded high-res figures and compl
 Course: 21CSE423T - Big Data Visualization
 Institution: SRM Institute of Science and Technology, Tiruchirappalli
 Faculty Handling: Dr. Ganagavalli K
-Team Members:
-  1. SHREE HARISH V [Reg No: RA2311027050036]
-  2. CHETHAN CHARMANNA PK [Reg No: RA2311027050008]
-  3. SHIRAVANI DOSS M [Reg No: RA2311027050029]
+Candidate:
+  SHREE HARISH V [Reg No: RA2311027050036]
 Live Portal: https://hospitalanalytics.vercel.app/
 """
 
@@ -109,7 +107,7 @@ def build_presentation():
 
     # Info Grid Cards on Slide 1
     cards = [
-        ("CANDIDATES (TEAM C)", "Shree Harish V (RA2311027050036)\nChethan Charmanna PK (RA2311027050008)\nShiravani Doss M (RA2311027050029)"),
+        ("CANDIDATE", "Shree Harish V\nReg No: RA2311027050036\nDept. of Computer Science & Engineering"),
         ("FACULTY SUPERVISOR", "Dr. Ganagavalli K\nAssistant Professor, Dept. of IT\nSRM IST, Tiruchirappalli Campus"),
         ("SUBMISSION & DEPLOYMENT", "Academic Report: 22 Pages PDF\nPresentation: 15 Slides\nLive: hospitalanalytics.vercel.app")
     ]
@@ -138,11 +136,11 @@ def build_presentation():
 
     s1.notes_slide.notes_text_frame.text = (
         "Good morning, respected faculty in-charge Dr. Ganagavalli K and members of the evaluation panel. "
-        "Welcome to our Continuous Learning Assessment – 2 presentation for course 21CSE423T: Big Data Visualization. "
-        "Our project is titled 'Hospital Patient Admission & Disease Distribution Analysis: An Interactive Visual Analytics "
-        "Platform for Clinical Capacity Optimization'. I am Shree Harish V, presenting alongside my team members Chethan Charmanna PK "
-        "and Shiravani Doss M. Today we demonstrate three interconnected deliverables: this 15-slide presentation, a comprehensive "
-        "22-page academic project report matching our university guidelines, and our production web platform live on Vercel."
+        "Welcome to my Continuous Learning Assessment – 2 presentation for course 21CSE423T: Big Data Visualization. "
+        "My project is titled 'Hospital Patient Admission & Disease Distribution Analysis: An Interactive Visual Analytics "
+        "Platform for Clinical Capacity Optimization'. I am Shree Harish V. Today I demonstrate three interconnected deliverables: "
+        "this 15-slide presentation, a comprehensive 22-page academic project report matching our university guidelines, and my production "
+        "web platform live on Vercel."
     )
 
     # =========================================================================
@@ -900,11 +898,11 @@ def build_presentation():
 
     s15.notes_slide.notes_text_frame.text = (
         "In conclusion, this project fulfills all expectations of the SRM Continuous Learning Assessment 2 for Big Data Visualization. "
-        "Our dashboard is publicly hosted and live at https://hospitalanalytics.vercel.app/. Evaluators can scan the QR code displayed on "
+        "The dashboard is publicly hosted and live at https://hospitalanalytics.vercel.app/. Evaluators can scan the QR code displayed on "
         "this slide with any mobile camera to interact with the responsive dashboard directly on their mobile device or laptop. "
-        "We have verified our findings across all three interconnected deliverables: this 15-slide presentation, our 22-page formal "
-        "academic report, and our interactive web application. We now transition directly to the live demonstration of the web dashboard. "
-        "Thank you, and we look forward to your questions."
+        "I have verified my findings across all three interconnected deliverables: this 15-slide presentation, my 22-page formal "
+        "academic report, and my interactive web application. I now transition directly to the live demonstration of the web dashboard. "
+        "Thank you, and I look forward to your questions."
     )
 
     prs.save(pptx_path)
